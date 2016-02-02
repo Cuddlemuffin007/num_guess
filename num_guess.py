@@ -36,6 +36,7 @@ def start():
     # for testing
     #print("Secret number: ", secret_number)
     player_guess = guess_num()
+    turn = 1
 
     # for testing
     #print("Player number: ", player_guess)
@@ -46,6 +47,8 @@ def start():
         elif player_guess > secret_number:
             print("Secret number is lower.")
         player_guess = guess_num()
+        turn += 1
+    print("You took %d turns!" % turn)
     play_again()
 
 def computer_start():
