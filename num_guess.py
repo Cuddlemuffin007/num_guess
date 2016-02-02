@@ -2,15 +2,25 @@ from sys import exit
 from random import randint
 import math
 
+DUMMY = "Please enter a valid integer number"
+
 def get_input(prompt):
     return input("%s\n>> " % prompt)
 
 def guess_num():
-    return int(get_input("Please enter your guess."))
+    guess = get_input("Please enter your guess.")
+    while guess.isalpha():
+        guess = get_input(DUMMY)
+    return int(guess)
 
 def set_game_range():
     lower_bound = get_input("Please enter game's lower bound.")
+    while lower_bound.isalpha():
+        lower_bound = get_input(DUMMY + " for lower bound.")
     upper_bound = get_input("Please enter game's upper bound.")
+    while upper_bound.isalpha():
+        upper_bound = get_input(DUMMY + " for upper bound.")
+
     print("Game range is from %s to %s." % (lower_bound, upper_bound))
     return int(lower_bound), int(upper_bound)
 
