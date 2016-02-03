@@ -70,7 +70,7 @@ def computer_start():
     print("Provide a range of numbers for the computer.")
     lower, upper = set_game_range()
     secret_number = randint(lower, upper)
-    computer_number = (upper - lower) // 2
+    computer_number = (upper - abs(lower)) // 2
     print(computer_number, secret_number)
     guesses = 1
     floor, max = lower, upper
